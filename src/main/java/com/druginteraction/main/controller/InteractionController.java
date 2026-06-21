@@ -33,11 +33,10 @@ public class InteractionController {
         }
         //getting prescripsions for the selected patient
         List <Prescription> listprescriptions = pr2.findByPatientId(p.getId());
-        List<String> PatientMedNames = listprescriptions.stream().map(Prescription::getMedicineName).toList();
-        String result = intservice.checkInteraction(PatientMedNames,ir.getMedicinename());
-        response.setMessage(result);
-        response.setStatus(ir.getMedicinename());
-    return response;
+        List<String> PatientMedNames = listprescriptions.stream().map(Prescription::getMedicineName).toList();   List<String> patientMedNames = listprescriptions.stream()
+                .map(Prescription::getMedicineName)
+                .toList();
+        // Check interaction
+        return intservice.checkInteraction(patientMedNames, ir.getMedicinename());
     }
-
 }

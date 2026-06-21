@@ -46,5 +46,4 @@ public class PrescriptionController {
         }
         return PriscribeR1.save(prescription);
     }
-
 }
